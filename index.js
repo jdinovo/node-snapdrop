@@ -53,16 +53,12 @@ app.use(function(req, res) {
     res.redirect('/');
 });
 
-app.get('/', (req, res) => {
-	res.sendFile('index.html');
-});
-
 const server = http.createServer(app);
 
 if (publicRun == 'public') {
     server.listen(port);
 } else {
-    server.listen(port, '127.0.0.1');
+    server.listen(port, '0.0.0.0');
 }
 
 const parser = require('ua-parser-js');
